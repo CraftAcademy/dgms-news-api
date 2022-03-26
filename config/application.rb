@@ -15,20 +15,15 @@ require "action_cable/engine"
 
 Bundler.require(*Rails.groups)
 
-module DgmsNewsAdmin
+module DgmsNewsApi
   class Application < Rails::Application
-    config.load_defaults 6.1
-    config.api_only = true
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins "*"
-        resource "*",
-          headers: :any,
-          methods: %i[get post put delete],
-          expose: %w(access-token expiry token-type uid client),
-          max_age: 0
-      end
+    initializer(:remove_activestorage_routes, after: :add_routing_paths) do |app|
+      app.routes_reloader.paths.delete_if { |path| path =~ /activestorage|actionmailbox/ }
     end
+    config.load_defaults 7.0
+    config.api_only = true
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_namespace_key'
     config.generators do |generate|
       generate.helper false
       generate.assets false
