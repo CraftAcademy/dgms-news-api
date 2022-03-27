@@ -1,0 +1,7 @@
+example_id                                      | status | run_time        |
+----------------------------------------------- | ------ | --------------- |
+./spec/models/article_spec.rb[1:1:1]            | passed | 0.00155 seconds |
+./spec/models/article_spec.rb[1:1:2]            | passed | 0.0014 seconds  |
+./spec/models/article_spec.rb[1:2:1]            | passed | 0.00382 seconds |
+./spec/requests/api/articles/index_spec.rb[1:1] | passed | 0.01739 seconds |
+./spec/requests/api/articles/index_spec.rb[1:2] | passed | 0.04842 seconds |
