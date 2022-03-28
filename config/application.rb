@@ -15,7 +15,7 @@ require "action_cable/engine"
 
 Bundler.require(*Rails.groups)
 
-module DgmsNewsAdmin
+module DgmsNewsApi
   class Application < Rails::Application
     config.load_defaults 6.1
     config.api_only = true

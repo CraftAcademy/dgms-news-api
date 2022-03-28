@@ -1,4 +1,4 @@
-RSpec.describe "GET /api/articles", type: :request do
+RSpec.describe 'GET /api/articles', type: :request do
 
   let!(:articles) { create_list(:article, 5) }
 
