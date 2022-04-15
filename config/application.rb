@@ -22,6 +22,8 @@ module DgmsNewsApi
     end
     config.load_defaults 6.1
     config.api_only = true
+    config.stripe.publishable_key = Rails.application.credentials.dig(:stripe, :publishable_key)
+    config.stripe.secret_key = Rails.application.credentials.dig(:stripe, :secret_key)
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins "*"
@@ -41,5 +43,6 @@ module DgmsNewsApi
       generate.controller_specs false
       generate.request_specs false
     end
+
   end
 end
