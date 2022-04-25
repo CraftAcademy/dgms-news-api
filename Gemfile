@@ -11,6 +11,7 @@ gem "puma", "~> 5.0"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "rack-cors", require: "rack/cors"
 gem "devise_token_auth"
+gem 'geocoder', '~> 1.7', '>= 1.7.5'
 
 group :development, :test do
   gem "rspec-rails"
